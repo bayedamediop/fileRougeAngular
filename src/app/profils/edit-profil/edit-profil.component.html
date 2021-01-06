@@ -1,0 +1,16 @@
+<form #formElement="ngForm" (ngSubmit)="update(formElement)">
+  <div class="row" >
+    <div class="col-md-12">
+      <h1>Modification d'Un profil</h1>
+      <hr style="background-color: #C36464">
+      <label >LIBELLE</label>
+      <input matInput class="form-control" type="text" name="libelle" value="{{ profile.libelle}}" ngModel  required>
+
+    </div>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-success">Update</button>
+  </div>
+
+</form>
+

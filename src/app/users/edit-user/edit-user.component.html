@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="container">
+
+  <form  [formGroup]="userForm" (ngSubmit)="onAdd()">
+    <h1 style="text-align: center">Modiffication d'Un Utilisateur</h1>
+    <hr style="background-color: #C36464">
+    <div class="row ">
+      <div class="w-50">
+        <label class="mt-4">NOM</label>
+
+          <input matInput  class="form-control" type="text" name="nom"  required value="{{user.nom}}" [(ngModel)]="nom" formControlName="nom">
+
+        <label class="mt-4"> PRENOM</label>
+        <input matInput  class="form-control" type="text" name="prenom"  required value="{{user.prenom}}" [(ngModel)]="prenom" formControlName="prenom">
+        <label class="mt-4">EMAIL</label>
+        <input matInput  type="text" class="form-control" name="email"  required value="{{user.email}}" [(ngModel)]="email" formControlName="email">
+        <label class="mt-4">telephone</label>
+<!--        <input matInput  type="text" class="form-control" name="telephone"  required value="{{user.telephone}}" [(ngModel)]="telephone" formControlName="telephone">-->
+
+        <div class="form-group col-md-12 mt-4">
+          <label>Choix un profil</label>
+          <select  class="form-control" name="profiles" [(ngModel)]="profiles" formControlName="profiles"  >
+            <option  value="" >gfuhuuh</option>
+            <option value="ADMIN" >ADMIN</option>
+            <option value="cm" >CM</option>
+            <option value="FORMATEUR" >FORMATEUR</option>
+          </select>
+        </div>
+        <div class="input-group mb-3 mt-5" >
+          <div class="input-group-prepend">
+            <label></label>
+            <span class="input-group-text">Upload</span>
+          </div>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile01" name="avatar" [(ngModel)]="avatar" (change)="uploadefiler($event)" formControlName="avatar">
+            <label class="custom-file-label" for="inputGroupFile01">Choose your image</label>
+          </div>
+        </div>
+      </div>
+
+        <div class="w-25 ">
+          <img class="ml-5"   [src]="link" style="width: 300px; height: 300px; margin-top: 50px; border-radius: 50%">
+        </div>
+
+      </div>
+    <button  class="btn btn-info w-25  ml-5 btn-block">Soumett</button>
+  </form>
+</div>
+
+<app-footer></app-footer>

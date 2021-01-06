@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="w-50">
+      <div class="content-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="page-head-line">Liste des utilisateurs
+                <a [routerLink]="['/profiles/add']" style="float: right"> <i class="fas fa-user-plus " style="color: #C36464"></i></a>
+               </h1>
+
+            </div>
+          </div>
+          <hr style="background-color: #C36464; ">
+          <div class="row">
+
+<!--            <input type="text" [(ngModel)]="search" placeholder="recherger">-->
+            <div class="col-md-12 mt-2" style="border-right: 1px solid black;">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                      <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>LIBELLE</th>
+                        <th>ACTIONS</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let pro of profile">
+                        <td >{{pro.id}}</td>
+                        <td >{{pro.libelle}}</td>
+                        <td>
+                          <button class="btn btn-outline-success ml-2"> <a  [routerLink]="['/profiles/detail',pro.id]">Edit</a></button>
+                          <button class="btn btn-outline-danger ml-3"  (click)="delete(pro.id)">  <a ></a>delete</button>
+                        </td>
+
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class=" col ml-4 ">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

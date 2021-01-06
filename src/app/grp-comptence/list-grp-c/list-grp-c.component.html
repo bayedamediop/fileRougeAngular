@@ -1,0 +1,38 @@
+<app-header></app-header>
+<!--<p *ngFor="let grp of grpcomp.competenecec">{{grp.competence['libelle']}}ghhg</p>-->
+<div class="content-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="page-head-line">List des Des Groupes Competences
+          <a [routerLink]="['/groupecompetence/add']"style="float: right"> <i class="fas fa-user-plus"></i></a></h1>
+      </div>
+    </div>
+    <hr style="background-color: #C36464; ">
+    <table class="border">
+      <thead class="">
+        <div class="row">
+          <div class="col-md-6 mt-4" *ngFor="let grpc of grpcomp | paginate: { itemsPerPage: 6, currentPage: p}">
+            <div class="card" >
+              <div class="card-body">
+                <h5 class="card-header d-flex justify-content-between"> Libellé:<span>{{grpc.libelle}}</span>
+                  <span> <a [routerLink]="['/groupecompetence/edit']"><i class="fas fa-pencil-alt"></i> </a> &nbsp;
+                     <a [routerLink]="['/referentiele/edit']"><i class="fas fa-trash"></i> </a></span></h5>
+                <p class="text-dark">
+                 Description: {{grpc.description}}
+                </p>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Compétences: {{grpc.competence['libelle']}}</li>
+              </ul>
+            </div>
+       </div>
+        </div>
+
+      </thead>
+
+    </table>
+    <pagination-controls class="d-flex justify-content-center" (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
+<app-footer></app-footer>

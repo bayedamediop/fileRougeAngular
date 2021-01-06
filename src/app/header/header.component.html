@@ -1,0 +1,41 @@
+
+<ul id="menu">
+  <li><a href="#"><i class="fa fa-home fa-2x"></i><span> Home</span></a></li>
+  <li  style="float: right">
+    <a [routerLink]="['/login']" (click)="logout()" ><span>Log Out</span></a>
+  </li>
+  <li>
+    <a href="#"><i class="fa fa-comments fa-2x"></i><span> Frum</span></a>
+  </li>
+  <li>
+    <a href="#"><i class="fas fa-clipboard-list fa-2x"></i><span> Brief</span></a>
+  </li>
+  <li>
+    <a href="#"><i class="fas fa-inbox fa-2x "></i><span> Rendus</span></a>
+  </li>
+  <li>
+    <a href="#"><i class="fa fa-compass fa-2x"></i><span> Explorer</span></a>
+  </li>
+  <li>
+    <a href="#"><i class="fa fa-cog fa-2x"></i><span> Paremetre</span></a>
+        <ul>
+          <li><a [routerLink]="['/promos']">Promos</a></li>
+          <li><a [routerLink]="['/referentiele']">Référentiels</a></li>
+          <li><a [routerLink]="['/groupecompetence']">Groupe De Competence</a></li>
+          <li><a [routerLink]="['/competence']">Competence</a></li>
+          <li><a [routerLink]="['/grouptag']">Groupes Tags</a></li>
+          <li><a [routerLink]="['/profilsortie']">Profil de Sortie</a></li>
+        </ul>
+  </li>
+  <li>
+
+    <a href="#"><i class="fa fa-user fa-2x"></i><span> Users</span></a>
+    <ul>
+      <li><a [routerLink]="['/users']">Utilisateurs</a></li>
+      <li><a [routerLink]="['/profiles']">Profiles</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#"><i class="fa fa-history fa-2x"></i><span> historique des personnes</span></a>
+  </li>
+</ul>

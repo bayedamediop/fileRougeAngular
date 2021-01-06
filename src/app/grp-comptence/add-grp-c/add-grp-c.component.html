@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="container">
+  {{competences | json}}hjhkjhhj
+  <div class="row mt-5">
+    <h6 class="display-4">Ajout d'un Bien</h6>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-5" style="border-right: 1px solid black;">
+      <p class="pr-5">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta, sint consequuntur repudiandae incidunt earum dignissimos ab corporis temporibus, nisi natus fuga. Laudantium deserunt pariatur ipsam dolor, fugiat, nam in iusto eos necessitatibus architecto officia voluptates. Voluptate alias consequuntur doloribus repellendus! Accusamus ducimus officiis nesciunt minima in ea quas earum quidem corporis fuga error dolorem culpa.</p>
+      <hr>
+      <p class="pr-5">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, id!
+      </p>
+      <p class="pr-5">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit, modi hic! Quia, doloremque vitae, sint amet alias illo provident ea itaque quis accusantium quidem cupiditate nostrum maxime aliquid velit recusandae neque dignissimos ullam sequi aperiam possimus molestiae maiores hic. Modi, voluptatem nulla! Labore sint necessitatibus sed eveniet eos similique error quis dolor, dignissimos ducimus ipsum est iusto voluptatum unde veniam.
+      </p>
+    </div>
+    <div class="col">
+      <form class="p-5" [formGroup]="bienForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="libelle">Libelle</label>
+          <input type="text"  class="form-control" id="libelle"
+                 [formControlName]="'libelle'" name="libelle" placeholder="Entrer le libellé du bien">
+          <small class="blockquote-footer">50 caractères max</small>
+          <span *ngIf="!bienForm.get('libelle').valid && bienForm.get('libelle').touched" class="text-danger">
+            Please entre Un title valider</span>
+        </div>
+        <div class="form-group">
+          <label >Déscription</label>
+          <small class="blockquote-footer">500 caractères max</small>
+          <textarea class="form-control" [formControlName]="'description'"  name="description" id="description"  rows="5" placeholder="Un text descriptif du bien"></textarea>
+        </div>
+        <div class="form-group">
+          <select class="form-control" id="competences" [formControlName]="'competences'" name="competences">
+            <option *ngFor=" let p of competences " value="{{p.id}}"></option>
+          </select>
+        </div>
+        <hr>
+        <button  type="submit" class="btn btn-primary float-right">Ajouter</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+

@@ -1,0 +1,22 @@
+
+<!--<ul>-->
+<!--  <li *ngFor="let p of profiles.users"> {{p['email']}} </li>-->
+<!--</ul>-->
+<H3 class="text-center"> LISTES DES {{p['libele']}}</H3>
+<hr style="background-color: #C36464">
+<div class="row" >
+<div class="card mb-3 col-md-40 ml-2" *ngFor=" let p of profiles.users | paginate: { itemsPerPage: 4, currentPage: p}">
+  <img src="" alt="">
+  <div class="card-body">
+    <img src="data:image/jpeg;base64,{{p['avatar']}}" width="200px" height="105px" style="border-radius:50%" alt="">
+  </div>
+  <ul class="list-group list-group-flush  ">
+    <li class="list-group-item">Nom: &nbsp; {{p['nom']}}</li>
+    <li class="list-group-item">Prenom: &nbsp;{{p['prenom']}}</li>
+    Email:  <li class="list-group-item col-md-40">  {{p['email']}}</li>
+  </ul>
+
+</div>
+
+</div>
+<pagination-controls class="d-flex justify-content-center" (pageChange)="p = $event"></pagination-controls>
