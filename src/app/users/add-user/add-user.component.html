@@ -13,19 +13,19 @@
         <label>Nom:</label>
        <input type="text" class="form-control" name="nom" [(ngModel)]="nom" formControlName="nom">
         <span *ngIf="!userForm.get('nom').valid && userForm.get('nom').touched" class="text-danger">
-            Please entre Un nom le champ et Vide</span>
+            Le champ nom ne doit pas étre vide</span>
         </div>
         <div class="form-group">
         <label>Prenom:</label>
        <input type="text" class="form-control" name="prenom" [(ngModel)]="prenom" formControlName="prenom">
           <span *ngIf="!userForm.get('prenom').valid && userForm.get('prenom').touched" class="text-danger">
-            Please entre le Prenom le champ et Vide</span>
+           Le champ prenom ne doit pas étre vide</span>
         </div>
           <div class="form-group">
         <label>Email:</label>
          <input type="email" class="form-control" name="email" [(ngModel)]="email" formControlName="email">
             <span *ngIf="!userForm.get('email').valid && userForm.get('email').touched" class="text-danger">
-            Please entre Un email !!!!!!</span>
+           Entre un email !!!!!!</span>
           </div>
         <div class="form-group">
         <label>Profile</label>
@@ -35,7 +35,7 @@
          <option value="FORMATEUR">FORMATEUR</option>
        </select>
         <span *ngIf="!userForm.get('profiles').valid && userForm.get('profiles').touched" class="text-danger">
-            Please choix le type de l' utilisateur</span>
+             Choix le type de l' utilisateur</span>
   </div>
         <div class="input-group mb-3 mt-5" >
         <div class="input-group-prepend">
