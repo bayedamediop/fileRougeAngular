@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {RefServices} from '../refServices';
+import {Referentiels} from '../../moduls/referentiels';
 
 @Component({
   selector: 'app-list-ref',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListRefComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private service: RefServices) { }
+referentiel: Referentiels[];
   ngOnInit(): void {
+    this.service.getAllReference().subscribe(
+      data => {
+        this.referentiel = data;
+      }
+    );
   }
 
 }

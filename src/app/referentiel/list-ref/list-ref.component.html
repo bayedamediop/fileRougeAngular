@@ -10,159 +10,26 @@
     <hr style="background-color: #C36464; ">
     <table class="border">
       <thead class="">
-<tr>
+   <tr >
         <div class="row">
-           <div class="col-4 mt-4">
-             <div class="card" style="width: 18rem">
+           <div class="col-6 mt-4" *ngFor="let ref of referentiel">
+             <div class="card" style="">
                <div class="card-body">
-                 <h5 class="card-header d-flex justify-content-between"> <span>Libelle</span>
-                   <span> <a [routerLink]="['/referentiele/edit']"><i class="fas fa-pencil-alt"></i> </a> &nbsp;
+                 <h5 class="card-header d-flex justify-content-between"> <span>Libelle: <p>{{ref.libelle}}</p></span>
+                   <span> <a [routerLink]="['/referentiele/edit/',ref.id]"><i class="fas fa-pencil-alt"></i> </a> &nbsp;
                      <a [routerLink]="['/referentiele/edit']"><i class="fas fa-trash"></i> </a></span></h5>
                  <p class="text-dark">
-                  Presentation
                  </p>
                </div>
-               <ul class="list-group list-group-flush">
-                 <li class="list-group-item">Groupe de compétences</li>
-                 <li class="list-group-item">Programme</li>
-                 <li class="list-group-item">Critère d'évaluation</li>
-                 <li class="list-group-item">Critère d'admission</li>
-               </ul>
-             </div>
-          </div><div class="col-4 mt-4">
-             <div class="card" style="width: 18rem">
-               <div class="card-body">
-                 <h5 class="card-header d-flex justify-content-between"> <span>Libelle</span>
-                   <span> <a [routerLink]="['/referentiele/edit']"><i class="fas fa-pencil-alt"></i> </a> &nbsp;
-                     <a [routerLink]="['/referentiele/edit']"><i class="fas fa-trash"></i> </a></span></h5>
-                 <p class="text-dark">
-                  Presentation
-                 </p>
+               <div style="height: 100px">
+                 <span>
+               Presentation: <p>{{ref.presentation}}</p></span>
                </div>
                <ul class="list-group list-group-flush">
-                 <li class="list-group-item">Groupe de compétences</li>
-                 <li class="list-group-item">Programme</li>
-                 <li class="list-group-item">Critère d'évaluation</li>
-                 <li class="list-group-item">Critère d'admission</li>
-               </ul>
-             </div>
-          </div><div class="col-4 mt-4">
-             <div class="card" style="width: 18rem">
-               <div class="card-body">
-                 <h5 class="card-header d-flex justify-content-between"> <span>Libelle</span>
-                   <span> <a [routerLink]="['/referentiele/edit']"><i class="fas fa-pencil-alt"></i> </a> &nbsp;
-                     <a [routerLink]="['/referentiele/edit']"><i class="fas fa-trash"></i> </a></span></h5>
-                 <p class="text-dark">
-                  Presentation
-                 </p>
-               </div>
-               <ul class="list-group list-group-flush">
-                 <li class="list-group-item">Groupe de compétences</li>
-                 <li class="list-group-item">Programme</li>
-                 <li class="list-group-item">Critère d'évaluation</li>
-                 <li class="list-group-item">Critère d'admission</li>
-               </ul>
-             </div>
-          </div><div class="col-4 mt-4">
-             <div class="card" style="width: 18rem">
-               <div class="card-body">
-                 <h5 class="card-header d-flex justify-content-between"> <span>Libelle</span>
-                   <span> <a [routerLink]="['/referentiele/edit']"><i class="fas fa-pencil-alt"></i> </a> &nbsp;
-                     <a [routerLink]="['/referentiele/edit']"><i class="fas fa-trash"></i> </a></span></h5>
-                 <p class="text-dark">
-                  Presentation
-                 </p>
-               </div>
-               <ul class="list-group list-group-flush">
-                 <li class="list-group-item">Groupe de compétences</li>
-                 <li class="list-group-item">Programme</li>
-                 <li class="list-group-item">Critère d'évaluation</li>
-                 <li class="list-group-item">Critère d'admission</li>
-               </ul>
-             </div>
-          </div><div class="col-4 mt-4">
-             <div class="card" style="width: 18rem">
-               <div class="card-body">
-                 <h5 class="card-header d-flex justify-content-between"> <span>Libelle</span>
-                   <span> <a [routerLink]="['/referentiele/edit']"><i class="fas fa-pencil-alt"></i> </a> &nbsp;
-                     <a [routerLink]="['/referentiele/edit']"><i class="fas fa-trash" ></i> </a></span></h5>
-                 <p class="text-dark">
-                  Presentation
-                 </p>
-               </div>
-               <ul class="list-group list-group-flush">
-                 <li class="list-group-item">Groupe de compétences</li>
-                 <li class="list-group-item">Programme</li>
-                 <li class="list-group-item">Critère d'évaluation</li>
-                 <li class="list-group-item">Critère d'admission</li>
-               </ul>
-             </div>
-          </div><div class="col-4 mt-4">
-             <div class="card" style="width: 18rem">
-               <div class="card-body">
-                 <h5 class="card-header d-flex justify-content-between"> <span>Libelle</span>
-                   <span> <a [routerLink]="['/referentiele/edit']"><i class="fas fa-pencil-alt"></i> </a> &nbsp;
-                     <a [routerLink]="['/referentiele/edit']"><i class="fas fa-trash"></i> </a></span></h5>
-                 <p class="text-dark">
-                  Presentation
-                 </p>
-               </div>
-               <ul class="list-group list-group-flush">
-                 <li class="list-group-item">Groupe de compétences</li>
-                 <li class="list-group-item">Programme</li>
-                 <li class="list-group-item">Critère d'évaluation</li>
-                 <li class="list-group-item">Critère d'admission</li>
-               </ul>
-             </div>
-          </div><div class="col-4 mt-4">
-             <div class="card" style="width: 18rem">
-               <div class="card-body">
-                 <h5 class="card-header d-flex justify-content-between"> <span>Libelle</span>
-                   <span> <a [routerLink]="['/referentiele/edit']"><i class="fas fa-pencil-alt"></i> </a> &nbsp;
-                     <a [routerLink]="['/referentiele/edit']"><i class="fas fa-trash"></i> </a></span></h5>
-                 <p class="text-dark">
-                  Presentation
-                 </p>
-               </div>
-               <ul class="list-group list-group-flush">
-                 <li class="list-group-item">Groupe de compétences</li>
-                 <li class="list-group-item">Programme</li>
-                 <li class="list-group-item">Critère d'évaluation</li>
-                 <li class="list-group-item">Critère d'admission</li>
-               </ul>
-             </div>
-          </div><div class="col-4 mt-4">
-             <div class="card" style="width: 18rem">
-               <div class="card-body">
-                 <h5 class="card-header d-flex justify-content-between"> <span>Libelle</span>
-                   <span> <a [routerLink]="['/referentiele/edit']"><i class="fas fa-pencil-alt"></i> </a> &nbsp;
-                     <a [routerLink]="['/referentiele/edit']"><i class="fas fa-trash"></i> </a></span></h5>
-                 <p class="text-dark">
-                  Presentation
-                 </p>
-               </div>
-               <ul class="list-group list-group-flush">
-                 <li class="list-group-item">Groupe de compétences</li>
-                 <li class="list-group-item">Programme</li>
-                 <li class="list-group-item">Critère d'évaluation</li>
-                 <li class="list-group-item">Critère d'admission</li>
-               </ul>
-             </div>
-          </div><div class="col-4 mt-4">
-             <div class="card" style="width: 18rem">
-               <div class="card-body">
-                 <h5 class="card-header d-flex justify-content-between"> <span>Libelle</span>
-                   <span> <a [routerLink]="['/referentiele/edit']"><i class="fas fa-pencil-alt"></i> </a> &nbsp;
-                     <a [routerLink]="['/referentiele/edit']"><i class="fas fa-trash"></i> </a></span></h5>
-                 <p class="text-dark">
-                  Presentation
-                 </p>
-               </div>
-               <ul class="list-group list-group-flush">
-                 <li class="list-group-item">Groupe de compétences</li>
-                 <li class="list-group-item">Programme</li>
-                 <li class="list-group-item">Critère d'évaluation</li>
-                 <li class="list-group-item">Critère d'admission</li>
+                 <li class="list-group-item">Groupe de compétences:{{ref.grpecompetence}}</li>
+                 <li class="list-group-item">Programme: <p src="data:image/jpeg;base64,{{ref.programme}}"></p> </li>
+                 <li class="list-group-item">Critère d'évaluation: <p>{{ref.evaluation}}</p></li>
+                 <li class="list-group-item">Critère d'admission: <p>{{ref.admission}}</p></li>
                </ul>
              </div>
           </div>

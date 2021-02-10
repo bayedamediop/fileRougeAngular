@@ -1,32 +1,28 @@
-<app-header></app-header>
 
 <div class="container">
   <h1>Ajout Un Promo</h1>
   <hr style="background-color: #C36464">
   <div class="row mt-5" style="">
-    <div class="col-md-2"></div>
-    <div class="col-md-8 border">
-      <form>
+    <div class="col-md-6 border">
+      <form action="" class="form-group" [formGroup]="prmoForm" (ngSubmit)="onAdd()">
           <label >Choix un lanngue</label>
           <select  class="form-control w-50 "  >
             <option style="background-color: #C36464">Choix un un lanngue</option>
-            <option value="" >1</option>
-            <option value="" >2</option>
-            <option value="" >3</option>
-            <option value= "">4</option>
-            <option value= "">4</option>
+            <option value="fr" >Francais</option>
+            <option value="en" >Englais</option>
+            <option value="ar" >Arabe</option>
           </select>
         <label >Titre </label>&nbsp; a 100 caractérre
-        <input matInput placeholder="choisir la titre la plus claire" class="form-control" type="text" Name="titre"  required>
+        <input  placeholder="choisir la titre la plus claire" class="form-control" type="text" name="titre"
+                [(ngModel)]="title" formControlName="titre" required>
 
         <label >Déscription de la promotion </label>&nbsp; a 300 caractérres
         <textarea matInput placeholder="Ecrivez ic une description rapide ,simple et concue "
-                  class="form-control"  Name="description"  required></textarea>
+                  class="form-control"  Name="description" [(ngModel)]="description"
+                  formControlName="description" required></textarea>
         <label >Lieu de la promotion </label>&nbsp; a 100 caractérre
-        <input matInput placeholder="indiquez le regio dans leguel se trouve votre promotion " class="form-control" type="text" Name="lieu"  required>
-       <label >Réference Agat </label>&nbsp; a 100 caractérre
-        <input matInput placeholder="la référence agat est un code anlytique à demandé à votre responsabe si ne lavez pas"
-               class="form-control" type="referenceAgat" Name="lieu"  required>
+        <input  placeholder="indiquez le region dans leguel se trouve la promotion " class="form-control"
+                type="text" Name="lieu"  [(ngModel)]="lieu" formControlName="lieu" required>
 
         <label >Choix de la fabrique</label>
         <select  class="form-control w-50">
@@ -37,11 +33,12 @@
           <option value="" >VOLKENO</option>
           <option value= "">KOKI LA SOLUTION</option>
         </select>
-        <div class="row">
-
+        <div class="row mt-3">
           <div class="w-50 d-flex justify-content-between">
             <label >Date de Debut</label>
-            <input type="date" name="date-debut" class="form-control" >
+            <label>
+              <input type="date" name="date-debut" class="form-control" >
+            </label>
           </div>
           <div class="w-50 d-flex justify-content-between">
             <label >Date de Debut</label>
@@ -50,67 +47,11 @@
         </div>
         <label>Référentiel(s)</label>
        <div class="row mt-3">
+         <div class="" style="height: 80px"  *ngFor="let list of referentils" >
+          <input multiple class="" placeholder=" {{list.libelle}}"/>
 
-         <div class="w-25 d-flex justify-content-between">
-           <li class="list-group-item d-flex justify-content-between align-items-center fa ">
-            DEVELOPEUR DE WEB ET WEB MOBILE
-           </li>
          </div>
-         <div class="w-25 d-flex justify-content-between">
-           <li class="list-group-item d-flex justify-content-between align-items-center fa ">
-            REALISER UN SITE INTERNET APARTIR DE WORDPRESS
-           </li>
-         </div>
-         <div class="w-25 d-flex justify-content-between">
-           <li class="list-group-item d-flex justify-content-between align-items-center fa">
-           CODE ET DEPLOYER UNE APPLICATION SIMPLE
-           </li>
-         </div>
-         <div class="w-25 d-flex justify-content-between">
-           <li class="list-group-item d-flex justify-content-between align-items-center fa">
-           METHOE AGILES DE GESTION ET AMORCAGE DE PROJET
-           </li>
-         </div>
-         <div class="w-25 d-flex">
-           <li class="list-group-item d-flex justify-content-between align-items-center fa">
-           RÉFÉRENCE DEGITAL
-           </li>
-         </div>
-         <div class="w-25 d-flex justify-content-between">
-           <li class="list-group-item d-flex justify-content-between align-items-center fa">
-            COMPETENCE NUMERIQUE FONDAMENTAL
-           </li>
-         </div>
-         <div class="w-25 d-flex justify-content-between">
-           <li class="list-group-item d-flex justify-content-between align-items-center fa">
-           TECHNIQUE D'ASSISTENCE INFORMATIQUE
-           </li>
-         </div>
-         <div class="w-25 d-flex justify-content-between">
-           <li class="list-group-item d-flex justify-content-between align-items-center fa">
-           TECHNIQUE SUPPERIEUR SYSTEM ET RESEAU
-           </li>
-         </div>
-         <div class="w-25 d-flex justify-content-between">
-           <li class="list-group-item d-flex justify-content-between align-items-center fa">
-            OBJET CONNECTE
-           </li>
-         </div>
-         <div class="w-25 d-flex justify-content-between">
-           <li class="list-group-item d-flex justify-content-between align-items-center fa">
-            DÉVELOPEUR ET DETA
-           </li>
-         </div>
-         <div class="w-25 d-flex justify-content-between">
-           <li class="list-group-item d-flex justify-content-between align-items-center fa">
-             DÉVELOPEUR DE DETA ET INTELIGANCE  ARTIFICIELLE
-           </li>
-         </div>
-         <div class="w-25 d-flex justify-content-between">
-           <li class="list-group-item d-flex justify-content-between align-items-center fa">
-            ANALYSE SUBER SECURITE
-           </li>
-         </div>
+
        </div>
         <div class="rox mt-4">
           <div class="w-100 h-100">
@@ -123,7 +64,9 @@
       </form>
 
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      listes apprenants
+    </div>
   </div>
 
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RefServices} from '../../referentiel/refServices';
 
 @Component({
   selector: 'app-list-promo',
@@ -7,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPromoComponent implements OnInit {
 
-  constructor() { }
-
+  constructor( ) { }
   ngOnInit(): void {
   }
 

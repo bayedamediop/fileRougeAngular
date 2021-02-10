@@ -1,8 +1,7 @@
 <app-header></app-header>
 <div class="container">
-  {{competences | json}}hjhkjhhj
   <div class="row mt-5">
-    <h6 class="display-4">Ajout d'un Bien</h6>
+    <h6 class="display-4 text-center">Ajout Un Groupe De Competence</h6>
   </div>
   <hr>
   <div class="row">
@@ -17,11 +16,11 @@
       </p>
     </div>
     <div class="col">
-      <form class="p-5" [formGroup]="bienForm" (ngSubmit)="onSubmit()">
+      <form action="" class="form-group" [formGroup]="bienForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="libelle">Libelle</label>
+          <label>Nom:</label>
           <input type="text"  class="form-control" id="libelle"
-                 [formControlName]="'libelle'" name="libelle" placeholder="Entrer le libellé du bien">
+                 [formControlName]="'libelle'" placeholder="Entrer le libellé ">
           <small class="blockquote-footer">50 caractères max</small>
           <span *ngIf="!bienForm.get('libelle').valid && bienForm.get('libelle').touched" class="text-danger">
             Please entre Un title valider</span>
@@ -29,15 +28,15 @@
         <div class="form-group">
           <label >Déscription</label>
           <small class="blockquote-footer">500 caractères max</small>
-          <textarea class="form-control" [formControlName]="'description'"  name="description" id="description"  rows="5" placeholder="Un text descriptif du bien"></textarea>
+          <textarea class="form-control"   name="description" [formControlName]="'description'"required rows="5" placeholder="Un text descriptif du bien"></textarea>
         </div>
         <div class="form-group">
-          <select class="form-control" id="competences" [formControlName]="'competences'" name="competences">
-            <option *ngFor=" let p of competences " value="{{p.id}}"></option>
+          <select multiple class="form-control" [formControlName]="'competence'" required name="competence">
+            <option *ngFor=" let p of competences " [value]="'/api/competences/'+p.id">{{p.libelle}}</option>
           </select>
         </div>
         <hr>
-        <button  type="submit" class="btn btn-primary float-right">Ajouter</button>
+        <button class="btn btn-primary mt-4" type="submit" >Soumettre</button>
       </form>
     </div>
   </div>

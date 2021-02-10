@@ -1,5 +1,4 @@
 import {Injectable, OnInit} from '@angular/core';
-import {Users} from '../moduls/users';
 import {HttpClient} from '@angular/common/http';
 import {Observable, Subject} from 'rxjs';
 import {tap} from 'rxjs/operators';
@@ -7,17 +6,19 @@ import {tap} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  user: Users[];
-  url = 'http://127.0.0.1:8000/api/admin/users';
+export class PromoServices {
+  url = 'http://127.0.0.1:8000/api/admin/promos';
   constructor( private http: HttpClient) { }
   private actualise = new Subject <void>();
   get actualisation(): Subject<void>{
     return this.actualise;
   }
 
-  getAllUser(): Observable<any>{
-    return this.http.get( `http://127.0.0.1:8000/api/admin/users?isdelate=1`);
+  getAllPr(): any{
+    return this.http.get(this.url);
+  }
+  getAllR(): any{
+    return this.http.get('http://127.0.0.1:8000/api/admin/referentiels');
   }
 
   getUserById( id: number): any{
@@ -27,11 +28,11 @@ export class UserService {
     return this.http.get(this.url + `/${id}/users`);
   }
   // getUserConnecte(user: Users): Users{
-    // return  this.user ;
+  // return  this.user ;
 //  }
-  addUser(user: any): any
+  addPromo(promo: any): any
   {
-    return  this.http.post(this.url, user);
+    return  this.http.post(this.url, promo);
   }
   updated(id: number, user): any{
     return this.http.put(this.url + `/${id}`, {user});
@@ -42,10 +43,6 @@ export class UserService {
         this.actualise.next();
       })
     );
-  }
-  getLastId(): any{
-    return this.user[this.user.length - 1] ?
-      this.user[this.user.length - 1] . id : 0;
   }
 }
 

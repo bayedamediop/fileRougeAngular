@@ -1,10 +1,10 @@
 export class Competences {
-  id: number;
-  libeele: string;
+  id?: number;
+  libelle: string;
   description: string;
-  constructor(id: number, libeele: string, description: string) {
+  constructor(id: number, libelle: string, description: string) {
     this.id = id;
-    this.libeele = libeele;
+    this.libelle = libelle;
     this.description = description;
   }
 }

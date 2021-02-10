@@ -16,7 +16,7 @@ export class Services {
   }
 
   getAllgrpecompetences(): any{
-    return this.http.get('http://127.0.0.1:8000/api/admin/grpecompetences');
+    return this.http.get(this.url);
   }
   getAllcompetences(): Observable<any>{
     return this.http.get( `http://127.0.0.1:8000/api/admin/competences`);
@@ -33,7 +33,7 @@ export class Services {
 //  }
   addgrpc(grpc: any): any
   {
-    return  this.http.post(`http://127.0.0.1:8000/api/admin/grpecompetences`, grpc);
+    return  this.http.post(this.url, grpc);
   }
   updated(id: number, user: any): any{
     return this.http.put(this.url + `/${id}`, {user});

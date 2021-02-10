@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Users} from '../../moduls/users';
 import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {UserService} from '../user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-user',
@@ -9,7 +10,7 @@ import {UserService} from '../user.service';
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-  constructor( private service: UserService, private formBuilder: FormBuilder) {
+  constructor( private service: UserService, private rouet: Router, private formBuilder: FormBuilder) {
   }
   link = 'assets/images/s2.jpeg';
   userForm: FormGroup;
@@ -22,15 +23,6 @@ export class AddUserComponent implements OnInit {
   avatar: any;
   profile: string;
   ngOnInit(): any {
-    // this.userForm = new FormGroup(
-    //   {
-    //     nom: new FormControl(null),
-    //     prenom: new FormControl(),
-    //     email: new FormControl(),
-    //     profile: new FormControl(),
-    //     avatar: new FormControl(),
-    //   }
-    // );
     this.userForm = this.formBuilder.group({
         nom: ['', [Validators.required]],
         prenom: ['', [Validators.required]],
@@ -55,7 +47,7 @@ export class AddUserComponent implements OnInit {
      const formData = new FormData();
 
      for ( const key of Object.keys(formValue) ) {
-       if (key != 'avatar'){
+       if (key !== 'avatar'){
          const value = formValue[key];
          formData.append(key, value);
        }
@@ -63,7 +55,8 @@ export class AddUserComponent implements OnInit {
      formData.append('avatar', this.selectedFile);
      this.service.addUser(formData).subscribe(
       (response ) => {
-        console.log(response);
+       alert('User bien ajouter');
+       this.rouet.navigate(['/users']);
       }, (error) => {
         console.log(error);
       }

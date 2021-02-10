@@ -1,1 +1,48 @@
-<p>edit-ref works!</p>
+<app-header></app-header>
+<div class="container">
+  <form  [formGroup]="userForm" (ngSubmit)="onAdd()">
+    <h1 style="text-align: center">Modiffication d'Un Utilisateur</h1>
+    <hr style="background-color: #C36464">
+    <div class="row ">
+      <div class="w-50">
+        <label class="mt-4">Libelle</label>
+
+        <input matInput  class="form-control" type="text" name="libelle"  required value="{{refs.libelle}}" [(ngModel)]="libelle" formControlName="libelle">
+
+        <label class="mt-4"> Presentation</label>
+        <input matInput  class="form-control" type="text" name="presentation"  required value="{{refs.presentation}}" [(ngModel)]="presentation" formControlName="presentation">
+        <label class="mt-4">Evaluation</label>
+        <input matInput  type="text" class="form-control" name="evaluation"  required value="{{refs.evaluation}}" [(ngModel)]="evaluation" formControlName="evaluation">
+
+        <label class="mt-4">Admission</label>
+        <input matInput  type="text" class="form-control" name="admission"  required value="{{refs.admission}}" [(ngModel)]="admission" formControlName="admission">
+         <div class="form-group  mt-4">
+          <label>Choix un uGroupe De Competence(s)</label>
+           <label>
+             <select multiple class="form-control" [(ngModel)]="grpecompetence" formControlName="grpecompetence" name="grpecompetence">
+               <option *ngFor=" let p of grpC " [value]="p.id">{{p.libelle}}</option>
+             </select>
+           </label>
+         </div>
+        <div class="input-group mb-3 mt-5" >
+          <div class="input-group-prepend">
+            <label></label>
+            <span class="input-group-text">Upload</span>
+          </div>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile01" name="programme" [(ngModel)]="programme" (change)="uploadefiler($event)" formControlName="programme">
+            <label class="custom-file-label" for="inputGroupFile01">Choose your image</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-25 ">
+        <img class="ml-5"   [src]="link" style="width: 300px; height: 300px; margin-top: 50px; border-radius: 50%">
+      </div>
+
+    </div>
+    <button  class="btn btn-info w-25  ml-5 btn-block">Soumett</button>
+  </form>
+</div>
+
+<app-footer></app-footer>

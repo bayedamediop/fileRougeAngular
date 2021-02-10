@@ -19,7 +19,7 @@ export class EditUserComponent implements OnInit {
   prenom: any;
   email: any;
   telephone: number;
-  profiles: any;
+  profile: any;
   avatar: any;
   uploadefiler(event): any {
     this.selectedFile =  event.target.files[0];
@@ -43,24 +43,41 @@ export class EditUserComponent implements OnInit {
       nom: ['', [Validators.required]],
       prenom: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      profiles: ['', [Validators.required]],
+      profile: ['', [Validators.required]],
       avatar: ['', [Validators.required]],
     });
   }
   onAdd(): any {
     const id = this.route.snapshot.params.id;
+    // const formValue = this.userForm.value ;
+    //  const formData = new FormData();
+    // for ( const key of Object.keys(formValue) ) {
+    //   if (key !== 'avatar'){
+    //     const value = formValue[key];
+    //     formData.append(key, value);
+    //   }
+    // }
+    // formData.append('avatar', this.selectedFile);
+    // this.service.updated(id, formData).subscribe(
+    //   (response ) => {
+    //     console.log(response);
+    //   }, (error) => {
+    //     console.log(error);
+    //   }
+    // );
+
+
     const formValue = this.userForm.value ;
     const formData = new FormData();
+
     for ( const key of Object.keys(formValue) ) {
-      if (key != 'avatar'){
+      if (key !== 'avatar'){
         const value = formValue[key];
         formData.append(key, value);
       }
     }
-    formData.append(this.selectedFile, 'avatar');
-    // console.log(this.avatar);
-    // .append('avatar', this.selectedFile, this.selectedFile.name);
-    this.service.updated(id, formValue).subscribe(
+    formData.append('avatar', this.selectedFile);
+    this.service.updated(id, formData).subscribe(
       (response ) => {
         console.log(response);
       }, (error) => {

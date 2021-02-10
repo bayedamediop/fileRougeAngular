@@ -7,33 +7,34 @@ import {tap} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  user: Users[];
-  url = 'http://127.0.0.1:8000/api/admin/users';
+export class RefServices {
+  url = 'http://127.0.0.1:8000/api/admin/referentieles';
   constructor( private http: HttpClient) { }
   private actualise = new Subject <void>();
   get actualisation(): Subject<void>{
     return this.actualise;
   }
 
-  getAllUser(): Observable<any>{
-    return this.http.get( `http://127.0.0.1:8000/api/admin/users?isdelate=1`);
+  getAllGrpeCo(): any{
+    return this.http.get('http://127.0.0.1:8000/api/admin/grpecompetences');
+  }
+  getAllReference(): Observable<any>{
+    return this.http.get( this.url);
+  }
+  addRef(grpe): any{
+    return this.http.post( this.url, grpe);
   }
 
-  getUserById( id: number): any{
+  getRefeById( id: number): any{
     return this.http.get(this.url + `/${id}`);
   }
   getUserProfiles( id: number): any{
     return this.http.get(this.url + `/${id}/users`);
   }
   // getUserConnecte(user: Users): Users{
-    // return  this.user ;
+  // return  this.user ;
 //  }
-  addUser(user: any): any
-  {
-    return  this.http.post(this.url, user);
-  }
-  updated(id: number, user): any{
+  updated(id: number, user: any): any{
     return this.http.put(this.url + `/${id}`, {user});
   }
   deleteUser(id: number): any{
@@ -42,10 +43,6 @@ export class UserService {
         this.actualise.next();
       })
     );
-  }
-  getLastId(): any{
-    return this.user[this.user.length - 1] ?
-      this.user[this.user.length - 1] . id : 0;
   }
 }
 

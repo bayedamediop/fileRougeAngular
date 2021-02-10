@@ -86,7 +86,7 @@ const appRoute: Routes = [
     { path: 'profilsortie/detail', component: DetailPSComponent},
 
    { path: 'referentiele', component: ListRefComponent},
-    { path: 'referentiele/edit', component: EditRefComponent},
+    { path: 'referentiele/edit/:id', component: EditRefComponent},
     { path: 'referentiele/add', component: AddRefComponent},
 
   {path: 'not-found', component: PageNotFoundComponent},

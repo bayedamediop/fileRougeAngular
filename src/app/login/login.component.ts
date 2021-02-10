@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   formLogin: FormGroup;
+  fakeAuth = false;
   submitted = false;
   private token: string;
   constructor( private authService: AuthService, private formBuilder: FormBuilder,
@@ -36,6 +37,8 @@ export class LoginComponent implements OnInit {
       console.log(role);
     }, (error) => {
         console.log(error);
+        this.fakeAuth = true ;
+        return ;
     });
   }
   }

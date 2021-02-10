@@ -10,6 +10,9 @@
           <h2 style="text-align: center" class="ml-lg-5">Log In</h2>
         </div>
         <hr style="background-color: #008080">
+        <div class="alert alert-danger" *ngIf="fakeAuth">
+          <strong>Alert!</strong> Login ou mot de passe incorrecte!!!!
+        </div>
         <div class="row mt-5">
           <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
             <div class="input-group mb-3 mt-5">
@@ -20,10 +23,9 @@
                      class="form-control input_user " value="" placeholder="email"
                      [ngClass]="{'is-invalid': submitted && f.email.errors }">
             </div>
-            <div class="text-danger" *ngIf="submitted && f.email.errors">
-              <div *ngIf="f.email.errors.required"> Le champ emai est vide</div>
-              <div *ngIf="f.email.errors.email">email n'est pas valide</div>
-            </div>
+            <span class="text-danger" *ngIf="submitted && f.email.errors">
+                  <span *ngIf="f.email.errors.required">Email est vide</span>
+            </span>
             <div class="input-group mb-2">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fas fa-key"></i></span>
@@ -31,13 +33,12 @@
               <input [(ngModel)]="password"  type="password" formControlName="password"
                      class="form-control input_pass" value="" placeholder="password">
             </div>
-            <div class="text-danger" *ngIf="submitted && f.password.errors">
-              <div *ngIf="f.password.errors.required">Le camp password est vide</div>
-              <div *ngIf="f.password.errors.minLength">password n'est pas valide</div>
-            </div>
+            <span class="text-danger" *ngIf="submitted && f.email.errors">
+                  <span *ngIf="f.email.errors.required">password est vide</span>
+            </span>
 
             <div class="d-flex justify-content-center mt-3 login_container">
-              <button  class="btn btn-primary btn-block">login</button></div>
+              <button [disabled]="!formLogin.valid" class="btn btn-primary ">login</button></div>
           </form>
         </div>
       </div>

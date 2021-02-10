@@ -1,11 +1,11 @@
 export class GrpCompetences{
-  id: number;
-  libel: string;
+  id?: number;
+  libelle: string;
   description: string;
   competence: any;
-  constructor(id: number, libel: string, description: string, competence: any) {
+  constructor(id: number, libelle: string, description: string, competence: any) {
     this.id = id;
-    this.libel = libel;
+    this.libelle = libelle;
     this.description = description;
     this.competence = competence;
   }

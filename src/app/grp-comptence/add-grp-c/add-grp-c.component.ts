@@ -15,6 +15,7 @@ export class AddGrpCComponent implements OnInit {
   listsGrpC: any;
   competences: Competences[];
   bienForm: FormGroup;
+
   ngOnInit(): void {
     this.allCompe();
     this.bienForm =  new FormGroup(
@@ -22,10 +23,19 @@ export class AddGrpCComponent implements OnInit {
       {
         libelle: new FormControl(null, [Validators.required, ]),
         description: new FormControl(null, Validators.required),
-        competences: new FormControl(null, Validators.required), // select
+        competence: new FormControl(null, Validators.required),
+       // competences: new FormArray([]), // select
       }
     );
+    this.addOptions();
   }
+
+  addOptions(): any
+  {
+    const option = this.bienForm.controls.competences as FormArray;
+    option.push(new FormControl(null));
+  }
+
   allCompe(): any{
     this.service.getAllcompetences().subscribe(
       data => {
@@ -37,12 +47,16 @@ export class AddGrpCComponent implements OnInit {
 
   onSubmit(): any {
     const formValue = this.bienForm.value ;
-    const formData = new FormData();
-    for ( const key of Object.keys(formValue) ) {
-        const value = formValue[key];
-        formData.append(key, value);
-    }
-    this.service.addgrpc(formData).subscribe(
+    console.log(formValue);
+    // formValue.competences.push(formValue.competence) ;
+    // delete formValue['competence'];
+    // delete formValue.competences[0];
+    // const formData = new FormData();
+    // for ( const key of Object.keys(formValue) ) {
+    //     const value = formValue[key];
+    //     formData.append(key, value);
+    // }
+    this.service.addgrpc(formValue).subscribe(
       (response ) => {
         console.log(response);
       }, (error) => {
