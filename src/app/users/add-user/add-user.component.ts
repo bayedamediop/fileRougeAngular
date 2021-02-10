@@ -38,8 +38,7 @@ export class AddUserComponent implements OnInit {
     const mimeType = event.target.files[0].type;
 
     if (mimeType.match(/image\/*/) == null) {
-      this.msg = 'Selectionner un image !! Veuillez selectionner un type png/jgeg';
-      return;
+      this.msg = 'Selectionner un image !! Veuillez selectionner un type jpg/png/jpeg';
     }
     if (event.target.files){
       const reader = new FileReader();

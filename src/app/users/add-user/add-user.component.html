@@ -43,7 +43,8 @@
           <span class="input-group-text">Upload</span>
         </div>
         <div class="custom-file">
-          <input type="file" class="custom-file-input" id="inputGroupFile01" name="avatar" [(ngModel)]="avatar" (change)="uploadefiler($event)" formControlName="avatar">
+          <input type="file" class="custom-file-input" id="inputGroupFile01" name="avatar"
+                 [(ngModel)]="avatar" (change)="uploadefiler($event)" formControlName="avatar" alt="img.png">
           <label class="custom-file-label" for="inputGroupFile01">Choose your image</label>
 
         </div>
@@ -54,11 +55,12 @@
       </form>
 
     </div>
-  <div class="w-25 ">
-
+  <div class="w-25 " *ngIf="link">
          <img class="ml-5"  [src]="link" style="width: 300px; height: 300px; margin-top: 50px; border-radius: 50%">
-
   </div>
+    <div class="w-25 " *ngIf="!link">
+      <img src="assets/images/img.png" style="width: 300px; height: 300px; margin-top: 50px; border-radius: 50%">
+    </div>
 </div>
 </div>
 <app-footer></app-footer>
