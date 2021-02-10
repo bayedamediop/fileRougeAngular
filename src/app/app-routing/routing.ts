@@ -37,6 +37,7 @@ import {AddGrpCComponent} from '../grp-comptence/add-grp-c/add-grp-c.component';
 import {AddPromoComponent} from '../promos/add-promo/add-promo.component';
 import {AddGrptagsComponent} from '../group-tags/add-grptags/add-grptags.component';
 import {AddProfilSortieComponent} from '../profils-sortie/add-profil-sortie/add-profil-sortie.component';
+import {ListApprenantComponent} from '../aprenants/list-apprenant/list-apprenant.component';
 
 const appRoute: Routes = [
   { path: '', component: LoginComponent},
@@ -48,6 +49,10 @@ const appRoute: Routes = [
      { path: 'users/add', component: AddUserComponent},
      { path: 'users/:id', component: DetailUserComponent},
      { path: 'users/edit/:id', component: EditUserComponent},
+  { path: 'apprenants', component: ListApprenantComponent},
+  { path: 'users/add', component: AddUserComponent},
+  { path: 'users/:id', component: DetailUserComponent},
+  { path: 'users/edit/:id', component: EditUserComponent},
 
   { path: 'promos', component: AddPromoComponent},
 

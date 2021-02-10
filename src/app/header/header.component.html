@@ -6,8 +6,8 @@
       <img src="data:image/jpeg;base64,{{imageUser}}" class="rounded-circle " alt="Profil" style="height: 65px;width: 70px;margin-top: -10px">
     </a>
     <ul class="dropdown">
-    <li> <a href="#" ><i class="fa fa-user-o"></i> Profile</a></li>
-  <li> <a href="#" ><i class="fa fa-sliders"></i> Settings</a></li>
+    <li> <a href="#" ><i class="fa fa-user-o"></i> Mon Profil</a></li>
+  <li> <a routerLink="/users/{{idUserConnected}}" ><i class="fa fa-sliders"></i> Settings</a></li>
   <li> <a [routerLink]="['/login']" (click)="logout()" ><span>Log Out</span></a></li>
   </ul>
 

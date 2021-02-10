@@ -49,6 +49,10 @@ import {NgModule} from '@angular/core';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
+import { OrderByPipe } from './pipes/order-by.pipe';
+import { ListApprenantComponent } from './aprenants/list-apprenant/list-apprenant.component';
+import { AddApprenantComponent } from './aprenants/add-apprenant/add-apprenant.component';
+import { DetailUserConecteComponent } from './header/detail-user-conecte/detail-user-conecte.component';
 
 
 
@@ -93,6 +97,10 @@ import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
     DetailGrptagsComponent,
     EditGrptagsComponent,
     FilterPipe,
+    OrderByPipe,
+    ListApprenantComponent,
+    AddApprenantComponent,
+    DetailUserConecteComponent,
   ],
     imports: [
         BrowserModule,

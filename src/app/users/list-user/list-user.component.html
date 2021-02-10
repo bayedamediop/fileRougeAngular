@@ -34,7 +34,7 @@
                 </thead>
                 <tbody>
 
-                <tr *ngFor="let users of user | filter:search:'nom' | paginate: { itemsPerPage: 6, currentPage: p } " >
+                <tr *ngFor="let users of user | orderBy : 'nom' | filter:search:'nom' | paginate: { itemsPerPage: 6, currentPage: p } " >
                   <td>{{users.id}}</td>
                   <td> <img src="data:image/jpeg;base64,{{users.avatar}}" width="95px" height="65px" style="border-radius: 50%" alt="image.png"></td>
                   <td>{{users.nom}}</td>

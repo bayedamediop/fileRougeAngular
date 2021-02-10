@@ -15,7 +15,7 @@ export class AuthService {
   baseUrl = environment.baseUrl;
   helper = new JwtHelperService();
   get(): Observable<any> {
-    return this.https.get('http://127.0.0.1:8000/api/admin/users?isdelate=0');
+    return this.https.get('http://127.0.0.1:8000/api/admin/users?isdelate=1');
   }
   login(email: string, password: string): any{
     return this.https.post<any>( `${this.baseUrl}/login_check`, {
@@ -29,10 +29,10 @@ export class AuthService {
         if ( decoded.roles[0] === 'ROLE_ADMIN') {
           this.router.navigate(['users']);
         } else if ( decoded.roles[0] === 'ROLE_FORMATEUR') {
-          console.log('formateur');
+          this.router.navigate(['apprenants']);
           // this.router.navigate(['formateur']);
         } else if (decoded.roles[0] === 'ROLE_CM') {
-          console.log('cm');
+          this.router.navigate(['apprenants']);
           // this.router.navigate(['cm']);
         }else if (decoded.roles[0] === 'ROLE_APPRENANT') {
           console.log('apprenant');

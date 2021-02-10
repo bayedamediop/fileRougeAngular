@@ -12,6 +12,9 @@ export class HeaderComponent implements OnInit {
   constructor( private service: AuthService, private  router: Router) { }
   token: any;
   nameUserConnected: string;
+  nom: string;
+  prenom: string;
+  idUserConnected: any;
   imageUser: string;
   photoExist = false;
   users: any;
@@ -20,29 +23,25 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.token = this.service.getToken() ;
     const tokenDecoded = this.helper.decodeToken(this.token);
-    console.log(tokenDecoded);
+   // console.log(tokenDecoded);
     this.nameUserConnected = tokenDecoded.username;
-
+    // console.log(this.nameUserConnected);
     this.service.get().subscribe(data => {
       this.users = data;
       this.users.forEach((element: any) => {
-         console.log(this.nameUserConnected);
-        // tslint:disable-next-line:triple-equals
-         if (element.avatar != null) {
-          this.imageUser = element.avatar;
-          this.photoExist = true;
-          // console.log(this.imageUser);
-          return;
-        }
-         if (element.username === this.nameUserConnected) {
-          console.log(element.nom);
-          if (element.avatar != null) {
-            this.imageUser = element.photo;
+        if (element.email === this.nameUserConnected) {
+           // console.log('ok');
+           this.idUserConnected = element.id;
+           this.nom = element.nom;
+           this.prenom = element.prenom;
+           console.log(element.nom);
+           if (element.avatar != null) {
+            this.imageUser = element.avatar;
             this.photoExist = true;
             // console.log(this.imageUser);
             return;
           }
-          return;
+           return;
         }
       }) ;
     });
