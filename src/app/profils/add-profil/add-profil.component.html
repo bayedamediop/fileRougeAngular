@@ -8,7 +8,7 @@
       <label >LIBELLE</label>
       <input type="text" class="form-control" name="libelle" ngModel libelle required>
       <div>
-        <button class="btn btn-primary mt-4" type="submit" (click)="ajouter(formElement)">Soumettre</button>
+        <button [disabled]="!formElement.valid" class="btn btn-primary mt-4" type="submit" (click)="ajouter(formElement)">Soumettre</button>
       </div>
     </div>
 

@@ -19,7 +19,7 @@ export class ListUserComponent implements OnInit {
  public p = 1;
  reverse = false;
   search = '';
- public pageSize = 5;
+ public pageSize = 2;
   order = 'nom';
 ngOnInit(): void {
     this.service.actualisation.

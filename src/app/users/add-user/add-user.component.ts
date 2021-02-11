@@ -65,7 +65,9 @@ export class AddUserComponent implements OnInit {
        // alert('User bien ajouter');
         console.log(response);
         this.fakeAuth = true ;
-        return ;
+        // this.rouet.navigate(['users']);
+        return this.nom = '',
+        this.prenom = '' , this.email = '' , this.profile = '' , this.avatar = '';
       }, (error) => {
         console.log(error);
       }

@@ -36,8 +36,10 @@ export class UserService {
   {
     return  this.http.post(this.url, user);
   }
-  updated(id: number, user: FormData): any{
-    return this.http.put(this.url + `/${id}`, {user});
+
+  updated( id: number, user): any{
+   // return this.http.put(this.url + `/${id}`, {user});
+    return this.http.put(this.url + `/${id}`, user);
   }
   deleteUser(id: number): any{
     return this.http.delete(this.url + `/${id}`).pipe(

@@ -46,7 +46,7 @@ export class EditUserComponent implements OnInit {
       this.email = this.user.email;
       this.telephone = this.user.telephone;
       this.profile = this.user.profile;
-      // this.avatar = this.user.avatar;
+      this.avatar = this.user.avatar;
       if (this.user.avatar !== null) {
         this.photoExist = true;
         // console.log('photo exist!');
@@ -65,15 +65,15 @@ export class EditUserComponent implements OnInit {
   onAdd(): any{
     const formValue = this.userForm.value ;
     const formData = new FormData();
-    console.log(formData);
+
     for ( const key of Object.keys(formValue) ) {
       if (key !== 'avatar'){
         const value = formValue[key];
         formData.append(key, value);
       }
     }
-    // console.log(formData);
     formData.append('avatar', this.selectedFile);
+
     this.service.updated(this.idUserUpdated, formData).subscribe(
       (response ) => {
         // alert('User bien ajouter');
@@ -86,4 +86,3 @@ export class EditUserComponent implements OnInit {
     );
   }
 }
-
