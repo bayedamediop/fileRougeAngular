@@ -19,6 +19,9 @@ export class UserService {
   getAllUser(): Observable<any>{
     return this.http.get( `http://127.0.0.1:8000/api/admin/users?isdelate=1`);
   }
+  getAllUserDelete(): Observable<any>{
+    return this.http.get( `http://127.0.0.1:8000/api/admin/users?isdelate=0`);
+  }
 
   getUserById( id: number): any{
     return this.http.get(this.url + `/${id}`);
@@ -33,7 +36,7 @@ export class UserService {
   {
     return  this.http.post(this.url, user);
   }
-  updated(id: number, user): any{
+  updated(id: number, user: FormData): any{
     return this.http.put(this.url + `/${id}`, {user});
   }
   deleteUser(id: number): any{

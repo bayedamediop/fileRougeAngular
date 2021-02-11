@@ -49,10 +49,12 @@ import {NgModule} from '@angular/core';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgxQRCodeModule} from '@techiediaries/ngx-qrcode';
-import { OrderByPipe } from './pipes/order-by.pipe';
 import { ListApprenantComponent } from './aprenants/list-apprenant/list-apprenant.component';
 import { AddApprenantComponent } from './aprenants/add-apprenant/add-apprenant.component';
 import { DetailUserConecteComponent } from './header/detail-user-conecte/detail-user-conecte.component';
+import { UserDeleteComponent } from './users/user-delete/user-delete.component';
+import {Ng2OrderModule} from 'ng2-order-pipe';
+import {OrderModule} from 'ngx-order-pipe';
 
 
 
@@ -97,21 +99,23 @@ import { DetailUserConecteComponent } from './header/detail-user-conecte/detail-
     DetailGrptagsComponent,
     EditGrptagsComponent,
     FilterPipe,
-    OrderByPipe,
     ListApprenantComponent,
     AddApprenantComponent,
     DetailUserConecteComponent,
+    UserDeleteComponent,
   ],
-    imports: [
-        BrowserModule,
-        Routing,
-        ReactiveFormsModule,
-        HttpClientModule,
-        FormsModule,
-        NgxPaginationModule,
-        BrowserAnimationsModule,
-        NgxQRCodeModule
-    ],
+  imports: [
+    BrowserModule,
+    Routing,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule,
+    NgxPaginationModule,
+    BrowserAnimationsModule,
+    NgxQRCodeModule,
+    Ng2OrderModule,
+    OrderModule
+  ],
   providers: [ {provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true}],
   bootstrap: [AppComponent]
 })

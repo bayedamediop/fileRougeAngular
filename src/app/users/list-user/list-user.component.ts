@@ -17,10 +17,10 @@ export class ListUserComponent implements OnInit {
   constructor( private service: UserService) { }
   user: Users[];
  public p = 1;
- key = 'nom';
  reverse = false;
   search = '';
  public pageSize = 5;
+  order = 'nom';
 ngOnInit(): void {
     this.service.actualisation.
     subscribe(() => {

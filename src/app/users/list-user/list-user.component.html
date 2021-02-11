@@ -1,15 +1,17 @@
 <app-header></app-header>
 <div class="content-wrapper">
   <div class="container" id="htmlData" #htmlData>
-    <div class="row mt-5">
+    <div class="row">
       <div class="col-md-12">
         <div class="row">
-          <div class="w-50">
+          <div class="w-75 text-center">
             <h1>Liste des utilisateurs</h1>
           </div>
-          <div class="w-25"><input type="text" [(ngModel)]="search" placeholder=" Recherger Ici Par nom" class="form-control" style=""></div>
-          <div class="w-25"> <h1><a [routerLink]="['/users/add']"style="float: right"><i class="fas fa-user-plus " style="color: #C36464;
-          "></i></a></h1></div>
+        </div>
+        <div class="row">
+          <div class="w-50"><input type="text" [(ngModel)]="search" placeholder=" Recherger Ici Par nom" class="form-control" style=""></div>
+          <div class="w-25"> <h1><a [routerLink]="['/users/add']"style="float: right"><i class="fas fa-user-plus " style="color: #C36464;"></i></a></h1></div>
+          <div class="w-25 "> <h1><a [routerLink]="['/users-delete']"style="float: right; color: #C36464" class="text-decoration-none ">user delete</a></h1></div>
         </div>
       </div>
     </div>
@@ -34,7 +36,7 @@
                 </thead>
                 <tbody>
 
-                <tr *ngFor="let users of user | orderBy : key | filter:search:'nom' | paginate: { itemsPerPage: 6, currentPage: p } " >
+                <tr *ngFor="let users of user | orderBy: order | filter:search:'nom' | paginate: { itemsPerPage: 6, currentPage: p } " >
                   <td>{{users.id}}</td>
                   <td> <img src="data:image/jpeg;base64,{{users.avatar}}" width="95px" height="65px" style="border-radius: 50%" alt="image.png"></td>
                   <td>{{users.nom | titlecase}}</td>

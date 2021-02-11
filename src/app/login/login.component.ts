@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   fakeAuth = false;
   submitted = false;
   private token: string;
-  constructor( private authService: AuthService, private formBuilder: FormBuilder,
+  constructor( private authService: AuthService, private route: Router,  private formBuilder: FormBuilder,
   ) {
   }
   ngOnInit(): any{
@@ -32,9 +33,10 @@ export class LoginComponent implements OnInit {
       return;
     }
     this.authService.login(this.f.email.value, this.f.password.value).subscribe(
-      role => {
+      data => {
       // console.log(this.authService.getToken());
-      console.log(role);
+       this.route.navigate(['/users']);
+       // console.log(data);
     }, (error) => {
         console.log(error);
         this.fakeAuth = true ;

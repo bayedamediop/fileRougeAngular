@@ -15,7 +15,7 @@ export class EditUserComponent implements OnInit {
   link: any;
   selectedFile: any;
   userForm: FormGroup;
-  dataUsers: Users;
+  user: Users;
   nom: string;
   prenom: string;
   email: any;
@@ -39,15 +39,15 @@ export class EditUserComponent implements OnInit {
     this.idUserUpdated = +this.route.snapshot.params.id ;
     // console.log(this.userForm) ;
     this.service.getUserById(this.idUserUpdated).subscribe( data => {
-      this.dataUsers = data ;
-      console.log(this.dataUsers);
-      this.nom = this.dataUsers.nom;
-      this.prenom = this.dataUsers.prenom;
-      this.email = this.dataUsers.email;
-      this.telephone = this.dataUsers.telephone;
-      this.profile = this.dataUsers.profile;
-      // this.avatar = this.dataUsers.avatar;
-      if (this.dataUsers.avatar !== null) {
+      this.user = data ;
+      // console.log(this.dataUsers);
+      this.nom = this.user.nom;
+      this.prenom = this.user.prenom;
+      this.email = this.user.email;
+      this.telephone = this.user.telephone;
+      this.profile = this.user.profile;
+      // this.avatar = this.user.avatar;
+      if (this.user.avatar !== null) {
         this.photoExist = true;
         // console.log('photo exist!');
         // console.log(this.userUpdated.photo);
@@ -62,35 +62,28 @@ export class EditUserComponent implements OnInit {
       avatar: ['', [Validators.required]],
     });
   }
-  onAdd(): any {
-    const formValue = this.dataUsers ;
-   // console.log(this.dataUsers);
+  onAdd(): any{
+    const formValue = this.userForm.value ;
     const formData = new FormData();
-    for (const key of Object.keys(formValue)) {
-      if (key !== 'avatar') {
-        const value =  formValue[key] ;
-       // console.log(value);
-        formData.append(key, value) ;
+    console.log(formData);
+    for ( const key of Object.keys(formValue) ) {
+      if (key !== 'avatar'){
+        const value = formValue[key];
+        formData.append(key, value);
       }
     }
-    if (this.selectedFile) {
-      formData.append('avatar',  this.selectedFile) ;
-    }
-    this.service.updated(this.idUserUpdated, formData).subscribe(data => {
-      alert('User updated');
-      // this.router.navigate(['/listUsers']);
-    }, error => {
-      console.log(error);
-      this.errorSubmitted = true;
-    }) ;
-
-    this.submitted = true;
-  }
-
-  // tslint:disable-next-line:typedef
-  return() {
-    if (confirm('You are about to quit this page')) {
-      // this.router.navigate(['/listUsers']);
-    }
+    // console.log(formData);
+    formData.append('avatar', this.selectedFile);
+    this.service.updated(this.idUserUpdated, formData).subscribe(
+      (response ) => {
+        // alert('User bien ajouter');
+        console.log(response);
+        // this.fakeAuth = true ;
+        // return ;
+      }, (error) => {
+        console.log(error);
+      }
+    );
   }
 }
+
