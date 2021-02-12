@@ -12,6 +12,7 @@ import {Profils} from '../../../moduls/profils';
 export class DetailProfilsComponent implements OnInit {
 profiles: Profils;
 p = 1;
+  order: 'nom';
   constructor( private  route: ActivatedRoute, private service: ProfilServicesService) { }
   ngOnInit(): void {
     const idProfile: number = this.route.snapshot.params.id;

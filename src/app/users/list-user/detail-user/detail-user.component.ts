@@ -12,8 +12,7 @@ import {NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels} from '@techiediar
 export class DetailUserComponent implements OnInit {
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
-  user: Users;
-  prfile: string;
+  user: any;
   code: string;
   constructor( private route: ActivatedRoute, private service: UserService) { }
   ngOnInit(): void {

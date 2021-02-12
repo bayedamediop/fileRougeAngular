@@ -1,13 +1,16 @@
 
 <ul id="menu">
   <li><a href="#"><i class="fa fa-home fa-2x"></i><span> Home</span></a></li>
+
   <li  style="float: right" class="">
+    <h3 style="color: white ; float: left" >{{prenom}} <br> {{nom}}
+    </h3>
     <a *ngIf="photoExist" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action mt-2 ml-5">
       <img src="data:image/jpeg;base64,{{imageUser}}" class="rounded-circle " alt="Profil" style="height: 65px;width: 70px;margin-top: -10px">
     </a>
     <ul class="dropdown">
-    <li> <a href="#" ><i class="fa fa-user-o"></i> Mon Profil</a></li>
-  <li> <a routerLink="/users/{{idUserConnected}}" ><i class="fa fa-sliders"></i> Settings</a></li>
+    <li> <a routerLink="/users/{{idUserConnected}}" ><i class="fa fa-user-o"></i> Mon Profil</a></li>
+  <li> <a routerLink="/users/edit/{{idUserConnected}}" ><i class="fa fa-sliders"></i> Settings</a></li>
   <li> <a [routerLink]="['/login']" (click)="logout()" ><span>Log Out</span></a></li>
   </ul>
 

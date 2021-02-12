@@ -1,9 +1,9 @@
 export class Profils{
   id: number;
-  libelle: string;
+  libele: string;
   users: [];
-  constructor(id: number, libelle: string) {
+  constructor(id: number, libele: string) {
     this.id = id;
-    this.libelle = libelle;
+    this.libele = libele;
   }
 }

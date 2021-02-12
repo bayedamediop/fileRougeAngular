@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../user.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Users} from '../../moduls/users';
 import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 
@@ -11,16 +11,17 @@ import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/
 })
 export class EditUserComponent implements OnInit {
   private photoExist: boolean;
-  constructor( private service: UserService, private route: ActivatedRoute, private formBuilder: FormBuilder) { }
+  constructor( private service: UserService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) { }
   link: any;
   selectedFile: any;
+  fakeAuth = false;
   userForm: FormGroup;
   user: Users;
   nom: string;
   prenom: string;
   email: any;
   telephone: number;
-  profile: any;
+  profil: any;
   avatar: any;
   submitted = false;
   errorSubmitted = false;
@@ -45,7 +46,7 @@ export class EditUserComponent implements OnInit {
       this.prenom = this.user.prenom;
       this.email = this.user.email;
       this.telephone = this.user.telephone;
-      this.profile = this.user.profile;
+      this.profil = this.user.profil;
       this.avatar = this.user.avatar;
       if (this.user.avatar !== null) {
         this.photoExist = true;
@@ -58,7 +59,7 @@ export class EditUserComponent implements OnInit {
       prenom: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       telephone: ['', [Validators.required]],
-      profile: ['', [Validators.required]],
+      // profile: ['', [Validators.required]],
       avatar: ['', [Validators.required]],
     });
   }
@@ -73,13 +74,10 @@ export class EditUserComponent implements OnInit {
       }
     }
     formData.append('avatar', this.selectedFile);
-
     this.service.updated(this.idUserUpdated, formData).subscribe(
       (response ) => {
-        // alert('User bien ajouter');
-        console.log(response);
-        // this.fakeAuth = true ;
-        // return ;
+        alert('User bien ajouter');
+        this.router.navigate(['/users']);
       }, (error) => {
         console.log(error);
       }

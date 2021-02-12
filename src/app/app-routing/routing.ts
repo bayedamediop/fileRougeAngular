@@ -63,6 +63,8 @@ const appRoute: Routes = [
          { path: 'add', component: AddProfilComponent},
          { path: 'detail/:id', component: DetailProfilsComponent},
        ]},
+  { path: 'detail/:id', component: DetailProfilsComponent},
+
   { path: 'profilSortie', component: ListProfilSortieComponent , children: [
       { path: 'edit/:id', component: EditProfilSortieComponent},
       { path: 'add', component: AddProfilSortieComponent},

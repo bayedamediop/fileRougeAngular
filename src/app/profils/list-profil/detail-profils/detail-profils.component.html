@@ -1,22 +1,72 @@
+<app-header></app-header>
+<div class="content-wrapper">
+  <div class="container" id="htmlData" #htmlData>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="w-75 text-center">
+            <h1>Liste des utilisateurs  d' un profils
+              <div class="float-right"> <h1><a [routerLink]="['/users']"style="float: right"><i class="fa fa-reply " style="color: #C36464;
+          "></i></a></h1></div>
+            </h1>
+          </div>
+        </div>
+        <div class="row">
+          <!--          <div class="w-50"><input type="text" [(ngModel)]="search" placeholder=" Recherger Ici Par nom" class="form-control" style=""></div>-->
+        </div>
+      </div>
+    </div>
+    <hr style="background-color: #C36464; ">
+    <div class="row">
+      <div class="col-md-12 ">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+          </div>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>AVATAR</th>
+                  <th>NOM</th>
+                  <th>PRENOM</th>
+                  <th>EMAIL</th>
+                  <th class="text-center">ACTIONS</th>
+                </tr>
+                </thead>
+                <tbody>
 
-<!--<ul>-->
-<!--  <li *ngFor="let p of profiles.users"> {{p['email']}} </li>-->
-<!--</ul>-->
-<H3 class="text-center"> LISTES DES {{p['libele']}}</H3>
-<hr style="background-color: #C36464">
-<div class="row" >
-<div class="card mb-3 col-md-40 ml-2" *ngFor=" let p of profiles.users | paginate: { itemsPerPage: 4, currentPage: p}">
-  <img src="" alt="">
-  <div class="card-body">
-    <img src="data:image/jpeg;base64,{{p['avatar']}}" width="200px" height="105px" style="border-radius:50%" alt="">
+                <tr *ngFor="let users of profiles.users  | paginate: { itemsPerPage: 6, currentPage: p } " >
+                  <td>{{users['id']}}</td>
+                  <td>
+                    <span *ngIf="users['avatar']">
+                    <img src="data:image/jpeg;base64,{{users['avatar']}}" width="95px" height="65px" style="border-radius: 50%" alt="image.png">
+                    </span>
+                    <span *ngIf="!users['avatar']">
+                      <img src="assets/images/img.png" width="95px" height="65px" style="border-radius: 50%" alt="image.png">
+                    </span>
+                  </td>
+
+                  <td>{{users['nom'] | titlecase}}</td>
+                  <td>{{users['prenom'] | titlecase}}</td>
+                  <td>{{users['email']}}</td>
+                  <td>
+                    <button type="button" class="btn btn-outline-success ml-5 "> <a [routerLink]="['/users/edit',users['id']]">Edit</a></button>
+                    <button class="btn btn-outline-info ml-3 "> <a  [routerLink]="['/users',users['id']]">Detail</a></button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <pagination-controls class="d-flex justify-content-center" (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </div>
-  <ul class="list-group list-group-flush  ">
-    <li class="list-group-item">Nom: &nbsp; {{p['nom']}}</li>
-    <li class="list-group-item">Prenom: &nbsp;{{p['prenom']}}</li>
-    Email:  <li class="list-group-item col-md-40">  {{p['email']}}</li>
-  </ul>
-
 </div>
-
-</div>
-<pagination-controls class="d-flex justify-content-center" (pageChange)="p = $event"></pagination-controls>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

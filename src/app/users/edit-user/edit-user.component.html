@@ -1,7 +1,9 @@
 <app-header></app-header>
 <div class="container">
-
   <form  [formGroup]="userForm" (ngSubmit)="onAdd()">
+    <div class="alert alert-danger" *ngIf="fakeAuth">
+      <strong>Alert!</strong> L ' Utilisateur modiffier avec succsse !
+    </div>
     <h1 style="text-align: center">Modiffication d'Un Utilisateur</h1>
     <hr style="background-color: #C36464">
     <div class="row ">
@@ -17,32 +19,33 @@
         <label class="mt-4">telephone</label>
         <input matInput  type="text" class="form-control" name="telephone"  required  [(ngModel)]="telephone" formControlName="telephone">
 
-        <div class="form-group col-md-12 mt-4">
-          <label>Choix un profil</label>
-          <select  class="form-control" name="profile" [(ngModel)]="profile" formControlName="profile"  >
-            <option  value="" >gfuhuuh</option>
-            <option value="ADMIN">ADMIN</option>
-            <option value="/api/admin/profils/4" >CM</option>
-            <option value="/api/admin/profils/3" >FORMATEUR</option>
-          </select>
-        </div>
+<!--        <div class="form-group col-md-12 mt-4">-->
+<!--          <label>Choix un profil</label>-->
+<!--          <select  class="form-control" name="profile" [(ngModel)]="profile" formControlName="profile"  >-->
+<!--            <option  value="" >gfuhuuh</option>-->
+<!--            <option value="ADMIN">ADMIN</option>-->
+<!--            <option value="/api/admin/profils/4" >CM</option>-->
+<!--            <option value="/api/admin/profils/3" >FORMATEUR</option>-->
+<!--          </select>-->
+<!--        </div>-->
         <div class="input-group mb-3 mt-5" >
           <div class="input-group-prepend">
             <label></label>
             <span class="input-group-text">Upload</span>
           </div>
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="inputGroupFile01" name="avatar"
+            <input type="file" accept=".png,.jpeg,.jpg" class="custom-file-input" id="inputGroupFile01" name="avatar"
                     [(ngModel)]="avatar" (change)="uploadefiler($event)" formControlName="avatar">
             <label class="custom-file-label" for="inputGroupFile01">Choose your image</label>
           </div>
         </div>
       </div>
-
-        <div class="w-25 ">
-          <img class="ml-5"  [src]="link" style="width: 300px; height: 300px; margin-top: 50px; border-radius: 50%">
-        </div>
-
+      <div class="w-25 " *ngIf="link">
+        <img class="ml-5"  [src]="link" style="width: 300px; height: 300px; margin-top: 50px; border-radius: 50%">
+      </div>
+      <div class="w-25 " *ngIf="!link">
+        <img src="data:image/jpeg;base64,{{user.avatar}}" class="ml-5" style="width: 300px; height: 300px; margin-top: 50px; border-radius: 50%">
+      </div>
       </div>
     <button  class="btn btn-info w-25  ml-5 btn-block">Soumett</button>
   </form>

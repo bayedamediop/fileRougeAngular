@@ -31,6 +31,7 @@
                   <th>NOM</th>
                   <th>PRENOM</th>
                   <th>EMAIL</th>
+                  <th>Profil</th>
                   <th class="text-center">ACTIONS</th>
                 </tr>
                 </thead>
@@ -38,10 +39,12 @@
 
                 <tr *ngFor="let users of user | orderBy: order | filter:search:'nom' | paginate: { itemsPerPage: 6, currentPage: p } " >
                   <td>{{users.id}}</td>
-                  <td> <img src="data:image/jpeg;base64,{{users.avatar}}" width="95px" height="65px" style="border-radius: 50%" alt="image.png"></td>
+                  <td>
+                    <img src="data:image/jpeg;base64,{{users.avatar}}" width="95px" height="65px" style="border-radius: 50%" alt="image.png"></td>
                   <td>{{users.nom | titlecase}}</td>
                   <td>{{users.prenom | titlecase}}</td>
                   <td>{{users.email}}</td>
+                  <td>{{users.profile.libelle}}</td>
                   <td>
                     <button type="button" class="btn btn-outline-success ml-5 "> <a [routerLink]="['/users/edit',users.id]">Edit</a></button>
                     <button class="btn btn-outline-info ml-3 "> <a  [routerLink]="['/users',users.id]">Detail</a></button>

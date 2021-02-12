@@ -8,7 +8,7 @@ import {Profils} from '../../moduls/profils';
   styleUrls: ['./list-profil.component.css']
 })
 export class ListProfilComponent implements OnInit {
-  profile: Profils;
+  listprofil: any;
   search = '';
 
   constructor( private  service: ProfilServicesService) { }
@@ -23,7 +23,7 @@ export class ListProfilComponent implements OnInit {
     this.service.getAllProfils()
       .subscribe(
         data => {
-          this.profile = data;
+          this.listprofil = data;
         }, (error) => {
           console.log(error);
         }

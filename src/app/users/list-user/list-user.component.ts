@@ -19,6 +19,7 @@ export class ListUserComponent implements OnInit {
  public p = 1;
  reverse = false;
   search = '';
+  profil = '';
  public pageSize = 2;
   order = 'nom';
 ngOnInit(): void {
