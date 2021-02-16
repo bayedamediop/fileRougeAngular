@@ -10,6 +10,7 @@ import {GrpCompetences} from '../../moduls/grpCompetences';
 export class ListGrpCComponent implements OnInit {
  grpcomp: any;
   p = 1;
+
   constructor( private service: Services) { }
 
   ngOnInit(): void {

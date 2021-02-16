@@ -10,7 +10,8 @@ import {Referentiels} from '../../moduls/referentiels';
 export class ListRefComponent implements OnInit {
 
   constructor(private service: RefServices) { }
-referentiel: Referentiels[];
+referentiel: any;
+  public p = 1;
   ngOnInit(): void {
     this.service.getAllReference().subscribe(
       data => {

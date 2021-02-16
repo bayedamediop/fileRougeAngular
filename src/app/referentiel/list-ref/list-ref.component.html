@@ -1,4 +1,5 @@
 <app-header></app-header>
+{{referentiel['grpeCompetence']}}
 <div class="content-wrapper">
   <div class="container">
     <div class="row">
@@ -10,9 +11,9 @@
     <hr style="background-color: #C36464; ">
     <table class="border">
       <thead class="">
-   <tr >
-        <div class="row">
-           <div class="col-6 mt-4" *ngFor="let ref of referentiel">
+   <tr class="w-25">
+        <div class="row w-100">
+           <div class="w-50 mt-4" *ngFor="let ref of referentiel | paginate: { itemsPerPage: 2, currentPage: p }">
              <div class="card" style="">
                <div class="card-body">
                  <h5 class="card-header d-flex justify-content-between"> <span>Libelle: <p>{{ref.libelle}}</p></span>
@@ -38,6 +39,8 @@
       </thead>
 
     </table>
+    <pagination-controls class="d-flex justify-content-center" (pageChange)="p = $event"></pagination-controls>
+
   </div>
 </div>
 <app-footer></app-footer>
